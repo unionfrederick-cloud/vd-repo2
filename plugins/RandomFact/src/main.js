@@ -7,7 +7,7 @@ let commands = [
 ]
 
 const fact = async function () {
-    const response = await fetch(`https://api.jaydendev.repl.co/fact`);
+    const response = await fetch(`https://a.jdev.eu.org/fact/specify/count/random/1`);
     const resp = await response.json();
     return resp["0"]
 }
@@ -21,7 +21,7 @@ commands.push(registerCommand({
     inputType: 1,
     type: 1,
 
-    execute: (ctx) => MessageActions.sendMessage(ctx.channel.id, {
-        content: fact()
+    execute: async (ctx) => MessageActions.sendMessage(ctx.channel.id, {
+        content: await fact()
     })
 }))
