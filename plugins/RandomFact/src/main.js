@@ -1,9 +1,7 @@
 import { registerCommand } from "@vendetta/commands"
-import { findByProps } from "@vendetta/metro"
 
-const MessageActions = findByProps("sendMessage", "receiveMessage")
 
-let commands = [
+let factCommand = [
 ]
 
 const fact = async function () {
@@ -12,16 +10,20 @@ const fact = async function () {
     return resp["0"]
 }
 
-commands.push(registerCommand({
-    name: "fact",
-    displayName: "fact",
-    description: "Sends a random fact.",
-    displayDescription: "Sends a random fact.",
-    applicationId: -1,
-    inputType: 1,
-    type: 1,
+export const onLoad = () => {
+    factCommand = registerCommand({
+        name: "fact",
+        displayName: "fact",
+        description: "Sends a random fact.",
+        displayDescription: "Sends a random fact.",
+        applicationId: -1,
+        inputType: 1,
+        type: 1,
 
-    execute: async (ctx) => MessageActions.sendMessage(ctx.channel.id, {
-        content: await fact()
-    })
-}))
+        execute: async () => { return { content: await fact() }}
+    });
+}
+
+export const onUnload = () => {
+    factCommand();
+}
