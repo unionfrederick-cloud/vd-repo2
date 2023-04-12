@@ -16,7 +16,7 @@ export const onLoad = () => {
         displayName: "catfact",
         description: "Sends a random cat fact.",
         displayDescription: "Sends a random cat fact.",
-        applicationId: -1,
+        applicationId: '-1',
         inputType: 1,
         type: 1,
 
