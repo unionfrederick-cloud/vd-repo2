@@ -1,6 +1,6 @@
 {
-    "name": "CatFacts",
-    "description": "Sends a random cat fact.",
+    "name": "RandomFacts",
+    "description": "Sends many facts.",
     "authors": [
         {
             "name": "jdev082",
